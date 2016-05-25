@@ -1,9 +1,12 @@
-<?php
+<?php namespace Foinikas\Updown;
 
 class Updown {
 
 	const BASE_URL = 'https://updown.io/api/checks';
 
+	/**
+	 * @var string User's API KEY.
+	 */
 	private $api_key;
 
 	/**
@@ -15,6 +18,8 @@ class Updown {
 	}
 
 	/**
+	 * List all your checks
+	 *
 	 * @return mixed
 	 */
 	public function checks()
@@ -25,6 +30,8 @@ class Updown {
 	}
 
 	/**
+	 * Show a single project's checks
+	 *
 	 * @param $token
 	 * @return mixed
 	 */
@@ -36,6 +43,8 @@ class Updown {
 	}
 
 	/**
+	 * Get all the downtimes of a check
+	 *
 	 * @param       $token
 	 * @param array $params
 	 * @return mixed
@@ -47,6 +56,13 @@ class Updown {
 		return self::_getRequest($url, $params);
 	}
 
+	/**
+	 * Get detailed metrics about the check
+	 *
+	 * @param       $token
+	 * @param array $params
+	 * @return mixed
+	 */
 	public function metrics($token, $params = [])
 	{
 		$url = self::BASE_URL . '/' . $token . '/metrics';
@@ -55,6 +71,8 @@ class Updown {
 	}
 
 	/**
+	 * Make GET Request with CURL
+	 *
 	 * @param       $url
 	 * @param array $params
 	 * @return mixed
