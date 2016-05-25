@@ -6,39 +6,59 @@ class Updown {
 
 	private $api_key;
 
+	/**
+	 * @param $api_key
+	 */
 	public function __construct($api_key)
 	{
 		$this->api_key = $api_key;
 	}
 
-	public function getChecks()
+	/**
+	 * @return mixed
+	 */
+	public function checks()
 	{
 		$url = self::BASE_URL;
 
 		return self::_getRequest($url);
 	}
 
-	public function getCheck($token)
+	/**
+	 * @param $token
+	 * @return mixed
+	 */
+	public function check($token)
 	{
 		$url = self::BASE_URL . '/' . $token;
 
 		return self::_getRequest($url);
 	}
 
-	public function getDowntimes($token, $params = [])
+	/**
+	 * @param       $token
+	 * @param array $params
+	 * @return mixed
+	 */
+	public function downtimes($token, $params = [])
 	{
 		$url = self::BASE_URL . '/' . $token . '/downtimes';
 
 		return self::_getRequest($url, $params);
 	}
 
-	public function getMetrics($token, $params = [])
+	public function metrics($token, $params = [])
 	{
 		$url = self::BASE_URL . '/' . $token . '/metrics';
 
 		return self::_getRequest($url, $params);
 	}
 
+	/**
+	 * @param       $url
+	 * @param array $params
+	 * @return mixed
+	 */
 	private function _getRequest($url, $params = [])
 	{
 		$curl = curl_init();
@@ -58,16 +78,3 @@ class Updown {
 		return $response;
 	}
 }
-
-$updown = new Updown('ro-3znwjgmx5bbzv6yeql1a');
-$response1 = $updown->getChecks();
-var_dump($response1);
-
-$response2 = $updown->getCheck('1f5p');
-var_dump($response2);
-
-$response3 = $updown->getDowntimes('1f5p');
-var_dump($response3);
-
-$response4 = $updown->getMetrics('1f5p');
-var_dump($response4);
