@@ -26,7 +26,7 @@ class Updown {
 	{
 		$url = self::BASE_URL;
 
-		return $this-_getRequest($url);
+		return $this->_getRequest($url);
 	}
 
 	/**
