@@ -26,7 +26,7 @@ class Updown {
 	{
 		$url = self::BASE_URL;
 
-		return self::_getRequest($url);
+		return $this-_getRequest($url);
 	}
 
 	/**
@@ -39,7 +39,7 @@ class Updown {
 	{
 		$url = self::BASE_URL . '/' . $token;
 
-		return self::_getRequest($url);
+		return $this->_getRequest($url);
 	}
 
 	/**
@@ -53,7 +53,7 @@ class Updown {
 	{
 		$url = self::BASE_URL . '/' . $token . '/downtimes';
 
-		return self::_getRequest($url, $params);
+		return $this->_getRequest($url, $params);
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Updown {
 	{
 		$url = self::BASE_URL . '/' . $token . '/metrics';
 
-		return self::_getRequest($url, $params);
+		return $this->_getRequest($url, $params);
 	}
 
 	/**
