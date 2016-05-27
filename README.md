@@ -13,14 +13,14 @@ You need your API_KEY from your account's settings page to use this. Visit updow
 The best way to install this package is through composer by running:
 
 ```bash
-composer require fakiolinho/updown-php
+composer require fakiolinho/updown-php:~1.0
 ```
 
 You could also add it in your project's `composer.json` file:
 
 ```json
 "require": {
-	"fakiolinho/updown-php": "dev-master"
+	"fakiolinho/updown-php": "~1.0"
 }
 ```
 
